@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+
+<script>
+var config = {
+apiKey: "AIzaSyDAVQ8RVDPLqMK4D8B_cxgUgF3udnrvaFo",
+authDomain: "project-be749.firebaseapp.com",
+databaseURL: "https://project-be749.firebaseio.com",
+projectId: "project-be749",
+storageBucket: "project-be749.appspot.com",
+messagingSenderId: "906719070564"
+};
+firebase.initializeApp(config);
+const messaging=firebase.messaging();
+
+messaging.requestPermission().then(function () {
+console.log("have permission");
+return messaging.getToken();
+}).then(function (token) {
+console.log(token);
+})
+.catch(function (err) {
+console.log("error occured");
+} )
+</script>
